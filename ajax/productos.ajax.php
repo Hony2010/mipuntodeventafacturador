@@ -18,6 +18,27 @@ if (isset($_POST['accion'])) {
 
             break;
 
+        case 'obtener_producto_x_id':
+
+            $response = ProductosModelo::mdlObtenerProductoPorId($_POST["id_producto"]);
+            echo json_encode($response);
+
+            break;
+
+        case 'listar_productos_x_categoria':
+
+            $response = ProductosModelo::mdlListarProductosPorCategoria($_POST["id_categoria"]);
+            echo json_encode($response);
+
+            break;
+
+        case 'listar_productos_x_descripcion':
+
+            $response = ProductosModelo::mdlListarProductosPorDescripcion($_POST["producto"]);
+            echo json_encode($response);
+
+            break;
+
         case 'listar_tipo_afectacion':
 
             $response = ProductosModelo::mdlListarTipoAfectacion();
@@ -58,15 +79,17 @@ if (isset($_POST['accion'])) {
 
             break;
 
-        case 'aumentar_disminuir_stock': //3
+        case 'aumentar_stock':
 
-            if ($_POST['tipo_movimiento'] == 'aumentar_stock') {
-                $response = ProductosModelo::mdlAumentarStock($_POST["codigo_producto"], $_POST["nuevoStock"]);
-                echo json_encode($response);
-            } else {
-                $response = ProductosModelo::mdlDisminuirStock($_POST["codigo_producto"], $_POST["nuevoStock"]);
-                echo json_encode($response);
-            }
+            $response = ProductosModelo::mdlAumentarStock($_POST["codigo_producto"], $_POST["nuevoStock"]);
+            echo json_encode($response);
+
+            break;
+
+        case 'disminuir_stock':
+
+            $response = ProductosModelo::mdlDisminuirStock($_POST["codigo_producto"], $_POST["nuevoStock"]);
+            echo json_encode($response);
 
             break;
 
@@ -119,10 +142,10 @@ if (isset($_POST['accion'])) {
 
         case 'obtener_producto': //7
 
-                $response = ProductosModelo::mdlObtenerProducto($_POST["codigo_producto"]);
-                echo json_encode($response);
-    
-                break;
+            $response = ProductosModelo::mdlObtenerProducto($_POST["codigo_producto"]);
+            echo json_encode($response);
+
+            break;
 
         case 'verificar_stock': //8
 
@@ -131,9 +154,9 @@ if (isset($_POST['accion'])) {
 
             break;
 
-        case 'carga_masiva_productos': //final
+        case 'carga_masiva_productos':
 
-            $response = ProductosModelo::mdlCargaMasivaProductos($_FILES['fileProductos']);
+            $response = ProductosModelo::mdlCargaMasivaProductos($_FILES["archivo"]);
             echo json_encode($response);
 
             break;
@@ -163,6 +186,13 @@ if (isset($_POST['accion'])) {
         case 'validar_codigo_producto': //1
 
             $response = ProductosModelo::mdlValidarCodigoProducto($_POST["codigo_producto"]);
+            echo json_encode($response);
+
+            break;
+
+        case 'listar_cargas_masivas': //1
+
+            $response = ProductosModelo::mdlListarCargasMasivas();
             echo json_encode($response);
 
             break;

@@ -45,12 +45,12 @@ foreach ($productos as $row) {
     // <a href="javascript:void(0);" class="d-flex border border-secondary border-left-0 border-right-0 border-top-0" style="width:100% !important;">
     $data["id"] = $codigo_producto;
     $data["value"] = $codigo_producto . ' - ' . $descripcion_producto;
-    $data["label"] = '<div class="row mx-0 border border-secondary border-left-0 border-right-0 border-top-0">                           
+    $data["label"] = '<div class="row mx-0 border border-secondary border-left-0 border-right-0 border-top-0" style="z-index:100;">
                             <div class="col-lg-12 d-flex flex-row align-items-center">
                                 <img src="vistas/assets/imagenes/productos/' . $imagen_producto . '" class="border rounded-pill text-center border-secondary" style="object-fit: cover; width: 40px; height: 40px; transition: transform .2s;" alt="">
                                 <div class="d-flex flex-column ml-3 text-sm">
                                     <div class="text-sm">Codigo: ' . $codigo_producto . ' - Producto: ' . $descripcion_producto . '</div> 
-                                    <div class="text-sm">' . "Stock: " .  $stock_producto . ' - Costo Unit.: ' . $precio_venta_producto . '</div>
+                                    <div class="text-sm">' . "Stock: " .  $stock_producto . ' - Precio Vta.: ' . $precio_venta_producto . '</div>
                                 </div>
                             </div>
                         </div>';

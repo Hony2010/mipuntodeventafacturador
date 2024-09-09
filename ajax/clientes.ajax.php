@@ -46,3 +46,12 @@ if (isset($_POST["accion"])) {
             break;
     }
 }
+
+
+
+if (isset($_GET["term"])) {
+
+    $response = ClientesModelo::mdlAutocompleteClientes($_GET["term"]);
+
+    echo json_encode($response);
+}

@@ -2,8 +2,10 @@
 
 class Rutas{
 
-    static public function RutaProyecyo(){
-        return "https://tutorialesphperu.com/pos//";
+    static public function RutaProyecto(){
+        return "http://localhost/miposfacturador/";
     }
 
 }
+
+?>
